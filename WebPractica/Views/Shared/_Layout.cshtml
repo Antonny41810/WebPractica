@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="es-co">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Web-Practica</title>
+    <partial name="_Estilos" />
+    <link rel="icon" type="imagen/jpg" href="~/Imagenes/omero.png" />
+    @await RenderSectionAsync("Styles", required: false)
+    <!-- Tablas Paginacion -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" style="color: white; font-family: Bradley Hand, cursive; font-size:15px">
+    <div class="wrapper" style="top:5px">
+        <partial name="_Navbar" />
+        <partial name="_Sidebar" />
+
+        @RenderBody();
+
+        <partial name="_Footer" />
+        <partial name="_Script" />
+    </div>
+
+
+    <!-- Tablas Paginacion -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+</body>
+</html>
