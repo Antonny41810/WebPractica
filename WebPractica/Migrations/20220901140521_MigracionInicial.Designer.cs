@@ -10,8 +10,8 @@ using WebPractica.Data;
 namespace WebPractica.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220721130652_CreacionCamposNuevosUsuarios")]
-    partial class CreacionCamposNuevosUsuarios
+    [Migration("20220901140521_MigracionInicial")]
+    partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -170,10 +170,12 @@ namespace WebPractica.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -210,10 +212,12 @@ namespace WebPractica.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -261,6 +265,9 @@ namespace WebPractica.Migrations
                         .HasColumnType("nvarchar(1)");
 
                     b.Property<DateTime>("FechaNac")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaReg")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Genero")

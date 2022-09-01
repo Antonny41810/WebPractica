@@ -39,6 +39,10 @@ namespace WebPractica.Controllers
         {
             return View(await _context.Registros.ToListAsync());
         }
+        public async Task<IActionResult> DescargarExcel()
+        {
+            return View(await _context.Registros.ToListAsync());
+        }
 
         // GET: Registros/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -69,7 +73,7 @@ namespace WebPractica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado")] Registro registros, IFormFile ImageFile)
+        public async Task<IActionResult> Create([Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado,FechaReg")] Registro registros, IFormFile ImageFile)
         {
             //if (ModelState.IsValid)
             if (ImageFile != null && ImageFile.Length > 0)
@@ -112,7 +116,7 @@ namespace WebPractica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado")] Registro registros, IFormFile ImageFile)
+        public async Task<IActionResult> Edit(int id, [Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado,FechaReg")] Registro registros, IFormFile ImageFile)
         {
             if (id != registros.IdRegistro)
             {
@@ -128,7 +132,7 @@ namespace WebPractica.Controllers
                         {
                             registros.Imagen = GetByteArrayFromImage(ImageFile);
                         }
-                         _context.Update(registros);
+                        _context.Update(registros);
                         await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(Index));
                     }
@@ -213,7 +217,7 @@ namespace WebPractica.Controllers
             string mimetype = "application/PDF";
             using var report = new LocalReport();
             // Ruta donde está el archivo rdcl
-            report.ReportPath = 
+            report.ReportPath =
             $"{this._webHostEnvironment.WebRootPath}\\Reportes\\ReportGeneral.rdlc";
             DataSet1 ds = new DataSet1();
             DataSet.DataSet1TableAdapters.RegistrosTableAdapter sda = new DataSet.DataSet1TableAdapters.RegistrosTableAdapter();
@@ -229,12 +233,5 @@ namespace WebPractica.Controllers
             //return File(pdf, mimetype);
         }
 
-        public IActionResult DescargarExcel()
-        {
-            //=========== PRIMERO - OBTENER EL DATA ADAPTER ===========
-            using (var conexion = new SqlConnection(DefaultConnection))
-            {
-                conexion.Open();
-            }
     }
 }

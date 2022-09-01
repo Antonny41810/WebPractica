@@ -370,3 +370,4 @@ C:\WebPracticaultima\WebPractica\WebPractica\bin\Debug\net5.0\SpreadsheetLight.d
 C:\WebPracticaultima\WebPractica\WebPractica\bin\Debug\net5.0\ClosedXML.dll
 C:\WebPracticaultima\WebPractica\WebPractica\bin\Debug\net5.0\ExcelNumberFormat.dll
 C:\WebPracticaultima\WebPractica\WebPractica\obj\Debug\net5.0\Razor\Views\Registros\Disabled.cshtml.g.cs
+C:\WebPracticaultima\WebPractica\WebPractica\obj\Debug\net5.0\Razor\Views\Registros\DescargarExcel.cshtml.g.cs
