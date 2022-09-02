@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -233,5 +234,51 @@ namespace WebPractica.Controllers
             //return File(pdf, mimetype);
         }
 
+
+        public ActionResult Graficas()
+        {
+            return View();
+        }
+        [HttpGet]
+        public JsonResult DatosPersonas()
+        {
+            List<Personas> objLista = new List<Personas>();
+            var conn = _context.Database.GetDbConnection();
+            try
+            {
+                using (var command = conn.CreateCommand())
+                {
+                    conn.Open();
+                    string query1 = "Select Nombre , edad From Personas";
+                    command.CommandText = query1;
+                    DbDataReader reader1 = command.ExecuteReader();
+                    while (reader1.Read())
+                    {
+                        objLista.Add(new Personas()
+                        {
+                            Nombre = reader1[" Nombre "].ToString(),
+                            Edad = int.Parse(reader1[" Edad "].ToString()),
+                        });
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception e1)
+            {
+                string error = e1.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return Json(objLista);
+        }
+    }
+
+    internal class Personas
+    {
+        public int Edad { get; internal set; }
+        public string Nombre { get; internal set; }
     }
 }
+   
