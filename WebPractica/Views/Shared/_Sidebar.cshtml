@@ -42,14 +42,14 @@
                         </li>
                     </ul>
                 </li>
-                @*}*@
-                @*}*@
+                @*}
+                }*@
 
                 @*@if (User.Identity.IsAuthenticated)
         {*@
                
             <li class="nav-item menu-open">
-                @if (User.IsInRole("SuperUsuario"))
+                @if (User.IsInRole("Admin"))
                 {
                     <a href="#" class="nav-link active bg-lightblue">
                         <i class="far fa-folder"></i>
@@ -60,7 +60,7 @@
                     </a>
                 }
                     <ul class="nav nav-treeview">
-                        @if (User.IsInRole("SuperUsuario"))
+                        @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
                                 <a href="~/Identity/Account/Manage/Index" class="nav-link active">
@@ -144,6 +144,13 @@
                                 <a href="~/Registros/DescargarExcel" class="nav-link active">
                                     <img src="~/Imagenes/excel.png" width="31px">
                                     <p>Reportes Excel</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="~/Registros/Graficas" class="nav-link active">
+                                    <img src="~/Imagenes/graficas.png" width="31px">
+                                    <p>Graficas</p>
                                 </a>
                             </li>
                         </ul>

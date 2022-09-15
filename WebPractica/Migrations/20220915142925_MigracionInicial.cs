@@ -67,7 +67,8 @@ namespace WebPractica.Migrations
                     Trabaja = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
                     Sueldo = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Estado = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: false),
-                    FechaReg = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    FechaReg = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Edad = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

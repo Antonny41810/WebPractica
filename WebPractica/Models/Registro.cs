@@ -85,6 +85,12 @@ namespace WebPractica.Models
         [Required(ErrorMessage = "Fecha requerida")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = false)]
         public DateTime FechaReg { get; set; }
+
+
+        [DisplayName("Edad")]
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "Edad requerida")]
+        public int Edad { get; set; }
     }
 
 }

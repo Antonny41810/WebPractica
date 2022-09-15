@@ -257,6 +257,9 @@ namespace WebPractica.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<int>("Edad")
+                        .HasColumnType("int");
+
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasMaxLength(1)

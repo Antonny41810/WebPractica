@@ -10,7 +10,7 @@ using WebPractica.Data;
 namespace WebPractica.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220901140521_MigracionInicial")]
+    [Migration("20220915142925_MigracionInicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -258,6 +258,9 @@ namespace WebPractica.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("Edad")
+                        .HasColumnType("int");
 
                     b.Property<string>("Estado")
                         .IsRequired()
