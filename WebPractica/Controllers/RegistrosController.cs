@@ -239,22 +239,23 @@ namespace WebPractica.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public JsonResult DatosPersonas()
         {
-            List<Personas> objLista = new List<Personas>();
+            List<Registro> objLista = new List<Registro>();
             var conn = _context.Database.GetDbConnection();
             try
             {
                 using (var command = conn.CreateCommand())
                 {
                     conn.Open();
-                    string query1 = "Select Nombre , edad From Personas";
+                    string query1 = "Select Nombre , edad From Registro";
                     command.CommandText = query1;
                     DbDataReader reader1 = command.ExecuteReader();
                     while (reader1.Read())
                     {
-                        objLista.Add(new Personas()
+                        objLista.Add(new Registro()
                         {
                             Nombre = reader1[" Nombre "].ToString(),
                             Edad = int.Parse(reader1[" Edad "].ToString()),
@@ -275,10 +276,10 @@ namespace WebPractica.Controllers
         }
     }
 
-    internal class Personas
-    {
-        public int Edad { get; internal set; }
-        public string Nombre { get; internal set; }
-    }
+    //internal class Registros
+    //{
+    //    public int Edad { get; internal set; }
+    //    public string Nombre { get; internal set; }
+    //}
 }
    

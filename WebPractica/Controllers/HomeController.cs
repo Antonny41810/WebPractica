@@ -57,7 +57,7 @@ namespace WebPractica.Controllers
                 conexion.Open();
                 using(var adapter = new SqlDataAdapter())
                 {
-                    adapter.SelectCommand = new SqlCommand("sp_reporte_registros3", conexion);
+                    adapter.SelectCommand = new SqlCommand("sp_reporte_registros", conexion);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                     adapter.SelectCommand.Parameters.AddWithValue("FechaInicio", fe1);
                     adapter.SelectCommand.Parameters.AddWithValue("FechaFin", fe2);
