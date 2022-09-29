@@ -250,15 +250,15 @@ namespace WebPractica.Controllers
                 using (var command = conn.CreateCommand())
                 {
                     conn.Open();
-                    string query1 = "Select Nombre , edad From Registro";
+                    string query1 = "Select Nombre, Edad From Registros";
                     command.CommandText = query1;
                     DbDataReader reader1 = command.ExecuteReader();
                     while (reader1.Read())
                     {
                         objLista.Add(new Registro()
                         {
-                            Nombre = reader1[" Nombre "].ToString(),
-                            Edad = int.Parse(reader1[" Edad "].ToString()),
+                            Nombre = reader1["Nombre"].ToString(),
+                            Edad = int.Parse(reader1["Edad"].ToString()),
                         });
                     }
                     conn.Close();
@@ -275,11 +275,5 @@ namespace WebPractica.Controllers
             return Json(objLista);
         }
     }
-
-    //internal class Registros
-    //{
-    //    public int Edad { get; internal set; }
-    //    public string Nombre { get; internal set; }
-    //}
 }
    

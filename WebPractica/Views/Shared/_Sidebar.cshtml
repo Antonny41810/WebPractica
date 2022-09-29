@@ -19,7 +19,7 @@
             if (User.IsInRole("Control") || User.IsInRole("Admin"))
             {*@
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active bg-lightblue">
+                    <a href="#" class="nav-link active bg-primary">
                         <i class="far fa-folder"></i>
                         <p>
                             Datos Personales
@@ -51,7 +51,7 @@
             <li class="nav-item menu-open">
                 @if (User.IsInRole("Admin"))
                 {
-                    <a href="#" class="nav-link active bg-lightblue">
+                    <a href="#" class="nav-link active bg-primary">
                         <i class="far fa-folder"></i>
                         <p>
                             Control Adiministrativo
@@ -110,7 +110,7 @@
                 if (User.IsInRole("Admin") || User.IsInRole("Invitado"))
                 {*@
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active bg-lightblue">
+                        <a href="#" class="nav-link active bg-primary">
                             <i class="far fa-folder"></i>
                             <p>
                                 Reportes

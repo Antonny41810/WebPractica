@@ -6,7 +6,7 @@
 
     <div class="content-wrapper bg-white d-flex justify-content-center align-items-center">
         <div class="card shadow" style="width:90%">
-            <div class="card-header text-dark"><center><h2>Usuarios Registrados</h2></center></div>
+            <div class="card-header text-dark" ><center><h2 style="font-weight: bold">Usuarios Registrados</h2></center></div>
             <p>
                 <a class="btn btn-dark m-3" asp-action="Create" style="font-family: Bradley Hand, cursive">Nuevo Registro</a>
             </p>
@@ -93,9 +93,9 @@
                                         @Html.DisplayFor(modelItem => item.FechaReg)
                                     </td>
                                     <td class="d-flex">
-                                        <a class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@item.IdRegistro" style="margin-right: 3%;"><i class="fas fa-pencil-alt">  </i>  Editar</a>
-                                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.IdRegistro" style="margin-right: 3%;"><i class="fas fa-folder">  </i>  Detalle</a>
-                                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-conformation" onclick="recibir(@item.IdRegistro)" style="margin-right: 3%;"><i class="fas fa-trash">  </i>  Eliminar</a>
+                                        <a class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@item.IdRegistro" style="margin-right: 3%;"><i class="fas fa-pencil-alt">  </i> </a>
+                                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.IdRegistro" style="margin-right: 3%;"><i class="fas fa-folder">  </i> </a>
+                                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-conformation" onclick="recibir(@item.IdRegistro)" style="margin-right: 3%;"><i class="fas fa-trash">  </i> </a>
                                     </td>
                                 </tr>
                                 }
